@@ -1,0 +1,40 @@
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# Distribution / packagine #
+############################
+.Python
+bin/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+#.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Flask STuff #
+###############
+instance/
+.webassets-cache
+
+# other #
+#########
+.htaccess
+__pycache__/
+
+# IDE #
+#######
+.vscode/
