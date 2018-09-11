@@ -4,6 +4,16 @@ import esp, network, gc, time, webrepl, machine
 esp.osdebug(None)
 gc.collect()
 
+
+# print instructions for how to prevent webrepl form loading
+print("To prevent Webrepl load, press ctrl-c in next 20 seconds")
+n = 0
+while n < 20:
+  print(n)
+  n += 1
+  time.sleep(1)
+
+
 #Attach to network
 def getKey(item):
   return item[3]

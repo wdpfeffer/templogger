@@ -17,16 +17,46 @@ def get_probe_no(addr):
     return ns
 
 
-def print_all_temps():
-    ds.convert_temp()
+def printHeader():
     roms = ds.scan()
     headStr = ''
     for rom in roms:
-        headStr += '{:15s}'.format(rom[0])  # build a header
+        headStr += '{:15s}'.format(get_probe_no(rom))  # build a header
+    print(headStr)
+
+
+def print_all_temps():
+    ds.convert_temp()
+    roms = ds.scan()
+    
+    tmpStr = ''
+    m = 0
+    n = 0
+    fs = ''
     for rom in roms:
-        probe_id = get_probe_no(rom)
-        temp = ds.read_temp(rom)
-        print('id', probe_id, 'temp', temp)
+        if m == 0:
+            n = m
+            fs='{:0.2f}'
+            # print(fs)
+        else:
+            n = 20-len(tmpStr)
+            fs = '{:' + str(n) + '.2f}'
+            # print(fs)
+        m += 1
+        tmpStr += fs.format(ds.read_temp(rom))
+        
+    print(tmpStr)
+
+def scrollTemps():
+    n = 0
+    while True:
+        if n == 0:
+            printHeader()
+        n += 1
+        if n > 20:
+            n = 0
+        print_all_temps()
+        time.sleep(1)
 
 
 def get_temps():
