@@ -20,6 +20,9 @@ def get_probe_no(addr):
 def print_all_temps():
     ds.convert_temp()
     roms = ds.scan()
+    headStr = ''
+    for rom in roms:
+        headStr += '{:15s}'.format(rom[0])  # build a header
     for rom in roms:
         probe_id = get_probe_no(rom)
         temp = ds.read_temp(rom)
