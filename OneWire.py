@@ -47,6 +47,7 @@ def print_all_temps():
         
     print(tmpStr)
 
+
 def scrollTemps():
     n = 0
     while True:
@@ -69,6 +70,7 @@ def get_temps():
         temps.append((probe_id, temp))
 
     return temps
+
 
 # todo determine if these lines are needed for thaw temp probe to run
 ow = onewire.OneWire(Pin(12))  # onewire device conneceted ot pin 12
