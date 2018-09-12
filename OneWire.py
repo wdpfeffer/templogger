@@ -70,7 +70,7 @@ def get_temps():
 
     return temps
 
-
+# todo determine if these lines are needed for thaw temp probe to run
 ow = onewire.OneWire(Pin(12))  # onewire device conneceted ot pin 12
 ds = ds18x20.DS18X20(ow)
 roms = ds.scan()
