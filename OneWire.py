@@ -28,7 +28,6 @@ def printHeader():
 def print_all_temps():
     ds.convert_temp()
     roms = ds.scan()
-    
     tmpStr = ''
     m = 0
     n = 0
@@ -44,7 +43,6 @@ def print_all_temps():
             # print(fs)
         m += 1
         tmpStr += fs.format(ds.read_temp(rom))
-        
     print(tmpStr)
 
 
